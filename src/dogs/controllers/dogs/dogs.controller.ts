@@ -1,8 +1,20 @@
-import { Body, Controller, Get, Post, Query, Redirect } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpException,
+  HttpStatus,
+  Post,
+  Query,
+  Redirect,
+  UseFilters,
+} from '@nestjs/common';
+import { HttpExceptionFilter } from '../../../common/filters/http-exception/http-exception.filter';
 import { CreateDogDto } from '../../dto/create-dog-dto/create-dog-dto';
 import { DogsService } from '../../services/dogs/dogs.service';
 
 @Controller('dogs')
+@UseFilters(HttpExceptionFilter)
 export class DogsController {
   constructor(private dogsService: DogsService) {}
 
@@ -13,6 +25,7 @@ export class DogsController {
 
   @Get()
   findAll() {
+    // throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
     return this.dogsService.findAll();
   }
 
