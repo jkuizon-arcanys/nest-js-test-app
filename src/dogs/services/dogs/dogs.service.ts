@@ -12,4 +12,8 @@ export class DogsService {
   findAll(): Dog[] {
     return this.dogs;
   }
+
+  findOne(id): Dog {
+    return this.dogs.find(({ id: dogId }) => dogId === id);
+  }
 }

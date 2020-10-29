@@ -2,14 +2,15 @@ import {
   Body,
   Controller,
   Get,
-  HttpException,
-  HttpStatus,
+  Param,
+  ParseIntPipe,
   Post,
   Query,
   Redirect,
   UseFilters,
 } from '@nestjs/common';
 import { HttpExceptionFilter } from '../../../common/filters/http-exception/http-exception.filter';
+import { ValidationPipe } from '../../../pipe/validation.pipe';
 import { CreateDogDto } from '../../dto/create-dog-dto/create-dog-dto';
 import { DogsService } from '../../services/dogs/dogs.service';
 
@@ -19,14 +20,18 @@ export class DogsController {
   constructor(private dogsService: DogsService) {}
 
   @Post()
-  create(@Body() createDogDto: CreateDogDto) {
+  async create(@Body(new ValidationPipe()) createDogDto: CreateDogDto) {
     this.dogsService.create(createDogDto);
   }
 
   @Get()
   findAll() {
-    // throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
     return this.dogsService.findAll();
+  }
+
+  @Get(':id')
+  async findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.dogsService.findOne(id);
   }
 
   @Get('ab*cd')
