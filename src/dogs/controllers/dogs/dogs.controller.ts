@@ -1,18 +1,5 @@
-<<<<<<< Updated upstream:src/controllers/dogs/dogs.controller.ts
-import {
-  Body,
-  Controller,
-  Get,
-  HttpCode,
-  Post,
-  Query,
-  Redirect,
-} from '@nestjs/common';
-import { CreateDogDto } from 'src/dto/create-dog-dto/create-dog-dto';
-=======
 import { Body, Controller, Get, Post, Query, Redirect } from '@nestjs/common';
 import { CreateDogDto } from '../../dto/create-dog-dto/create-dog-dto';
->>>>>>> Stashed changes:src/dogs/controllers/dogs/dogs.controller.ts
 import { DogsService } from '../../services/dogs/dogs.service';
 
 @Controller('dogs')
