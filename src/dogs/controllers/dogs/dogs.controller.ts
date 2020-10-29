@@ -2,19 +2,25 @@ import {
   Body,
   Controller,
   Get,
+  HttpException,
+  HttpStatus,
   Param,
   ParseIntPipe,
   Post,
   Query,
   Redirect,
   UseFilters,
+  UseInterceptors,
 } from '@nestjs/common';
 import { HttpExceptionFilter } from '../../../common/filters/http-exception/http-exception.filter';
+import { ErrorsInterceptor } from '../../../interceptors/errors.interceptor';
+import { LoggingInterceptor } from '../../../interceptors/logging.interceptor';
 import { ValidationPipe } from '../../../pipe/validation.pipe';
 import { CreateDogDto } from '../../dto/create-dog-dto/create-dog-dto';
 import { DogsService } from '../../services/dogs/dogs.service';
 
 @Controller('dogs')
+@UseInterceptors(LoggingInterceptor, ErrorsInterceptor)
 @UseFilters(HttpExceptionFilter)
 export class DogsController {
   constructor(private dogsService: DogsService) {}
@@ -31,7 +37,11 @@ export class DogsController {
 
   @Get(':id')
   async findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.dogsService.findOne(id);
+    const dog = this.dogsService.findOne(id);
+    if (!dog) {
+      throw new HttpException('', HttpStatus.NOT_FOUND);
+    }
+    return dog;
   }
 
   @Get('ab*cd')
