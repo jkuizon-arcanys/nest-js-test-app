@@ -1166,28 +1166,33 @@
         "signature": "ef022c91ea9e75ab4082f2e881f9c4db7b346be2da706e876b253bebce5e6140",
         "affectsGlobalScope": false
       },
-      "../src/dto/create-dog-dto/create-dog-dto.ts": {
+      "../src/dogs/create-dog-dto/create-dog-dto.ts": {
         "version": "b5cc3c43ced81d13ea285edab26db8eb1fc94706dd429f6237a3c4a8cc7c962f",
         "signature": "fc14d6a0d7af67937c7214434f2af1db9a3a285f3b0f92c3a1873e89e59cdc82",
         "affectsGlobalScope": false
       },
-      "../src/interfaces/dog.interface.ts": {
+      "../src/dogs/interfaces/dog.interface.ts": {
         "version": "d7934586dbc3d73bebca258bbfb55746e3c90cc86af07b9215d476bb4336cabe",
         "signature": "7227617ddc24efeda9e14ca1ab0957f54d422e4569ce6c352afc13da05e89c71",
         "affectsGlobalScope": false
       },
-      "../src/services/dogs/dogs.service.ts": {
+      "../src/dogs/services/dogs/dogs.service.ts": {
         "version": "9dfd431a5f9f2d554d907dd01695bdbf6028abbf03f47396859aecd77aad9690",
         "signature": "6dcdd63840ee30c45e0ee1ed183cf5db93fb4d100d716c6b3f36bc5b08e6d06f",
         "affectsGlobalScope": false
       },
-      "../src/controllers/dogs/dogs.controller.ts": {
-        "version": "91790edffb78828f4c6758c1dc3a1763c1fe7d9eca115f090fbe8c5714b08942",
-        "signature": "68d879411285f316d63cb7802b59eca0b9c72438ad7d2abeab0f08f4765808fe",
+      "../src/dogs/controllers/dogs/dogs.controller.ts": {
+        "version": "f863e4615fd64fdac8422d3ba59da3798926b01e3ba8e05707d6f750e4bad9fb",
+        "signature": "ef57ad7d56d6552210b17308d22ee070273c72cf442cfab62f1917c14fe58498",
+        "affectsGlobalScope": false
+      },
+      "../src/dogs/dogs.module.ts": {
+        "version": "b9b4a2cf24fe52f252d5d0769f70003a3f09026569b580ada13cff78ca547623",
+        "signature": "1274592df7b84dc995bc3191f696ccf48296f4244d0082e6d1aa2311beb0eaf5",
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
-        "version": "a9f2680249136ac10f15ccc8a362f1a16eaf515d5f60508f9c7ecc94d1def9a3",
+        "version": "3559740cdb8068d7e3fe80262046dbc21b86f258604636cdaa0d44a1f3e64596",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
         "affectsGlobalScope": false
       },
@@ -3320,25 +3325,29 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/app.controller.ts",
         "../src/app.service.ts",
-        "../src/controllers/dogs/dogs.controller.ts",
-        "../src/services/dogs/dogs.service.ts"
+        "../src/dogs/dogs.module.ts"
       ],
       "../src/app.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
       ],
-      "../src/controllers/dogs/dogs.controller.ts": [
+      "../src/dogs/controllers/dogs/dogs.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
-        "../src/dto/create-dog-dto/create-dog-dto.ts",
-        "../src/services/dogs/dogs.service.ts"
+        "../src/dogs/create-dog-dto/create-dog-dto.ts",
+        "../src/dogs/services/dogs/dogs.service.ts"
+      ],
+      "../src/dogs/dogs.module.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/dogs/controllers/dogs/dogs.controller.ts",
+        "../src/dogs/services/dogs/dogs.service.ts"
+      ],
+      "../src/dogs/services/dogs/dogs.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/dogs/interfaces/dog.interface.ts"
       ],
       "../src/main.ts": [
         "../node_modules/@nestjs/core/index.d.ts",
         "../node_modules/@nestjs/platform-express/index.d.ts",
         "../src/app.module.ts"
-      ],
-      "../src/services/dogs/dogs.service.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../src/interfaces/dog.interface.ts"
       ]
     },
     "exportedModulesMap": {
@@ -4655,13 +4664,13 @@
       "../src/app.controller.ts": [
         "../src/app.service.ts"
       ],
-      "../src/controllers/dogs/dogs.controller.ts": [
-        "../src/dto/create-dog-dto/create-dog-dto.ts",
-        "../src/interfaces/dog.interface.ts",
-        "../src/services/dogs/dogs.service.ts"
+      "../src/dogs/controllers/dogs/dogs.controller.ts": [
+        "../src/dogs/create-dog-dto/create-dog-dto.ts",
+        "../src/dogs/interfaces/dog.interface.ts",
+        "../src/dogs/services/dogs/dogs.service.ts"
       ],
-      "../src/services/dogs/dogs.service.ts": [
-        "../src/interfaces/dog.interface.ts"
+      "../src/dogs/services/dogs/dogs.service.ts": [
+        "../src/dogs/interfaces/dog.interface.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -5057,11 +5066,12 @@
       "../src/app.controller.ts",
       "../src/app.module.ts",
       "../src/app.service.ts",
-      "../src/controllers/dogs/dogs.controller.ts",
-      "../src/dto/create-dog-dto/create-dog-dto.ts",
-      "../src/interfaces/dog.interface.ts",
-      "../src/main.ts",
-      "../src/services/dogs/dogs.service.ts"
+      "../src/dogs/controllers/dogs/dogs.controller.ts",
+      "../src/dogs/create-dog-dto/create-dog-dto.ts",
+      "../src/dogs/dogs.module.ts",
+      "../src/dogs/interfaces/dog.interface.ts",
+      "../src/dogs/services/dogs/dogs.service.ts",
+      "../src/main.ts"
     ]
   },
   "version": "3.9.7"
