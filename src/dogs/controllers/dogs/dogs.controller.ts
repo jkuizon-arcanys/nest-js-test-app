@@ -1,13 +1,5 @@
-import {
-  Body,
-  Controller,
-  Get,
-  HttpCode,
-  Post,
-  Query,
-  Redirect,
-} from '@nestjs/common';
-import { CreateDogDto } from 'src/dto/create-dog-dto/create-dog-dto';
+import { Body, Controller, Get, Post, Query, Redirect } from '@nestjs/common';
+import { CreateDogDto } from '../../create-dog-dto/create-dog-dto';
 import { DogsService } from '../../services/dogs/dogs.service';
 
 @Controller('dogs')
